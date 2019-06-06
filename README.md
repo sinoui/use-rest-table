@@ -1,27 +1,54 @@
 # use-rest-table
 
-## 项目中有以下有用的命令。
+@sinoui/use-rest-table 旨在简化与列表渲染的相关处理。
 
-### `yarn start`
+## 安装
 
-在开发和监听模式下启动项目。当代码发生变化时就会重新编译代码。它同时会实时地向你汇报项目中的代码错误。
+使用`yarn`：
 
-### `yarn build`
+```shell
+yarn add @sinoui/use-rest-table
+```
 
-打包，并将打包文件放在`dist`文件夹中。使用 rollup 对代码做优化并打包成多种格式（`Common JS`，`UMD`和`ES Module`）。
+使用`npm`:
 
-### `yarn lint`
+```shell
+npm i --save @sinoui/use-rest-table
+```
 
-`yarn lint`会检查整个项目是否有代码错误、风格错误。
+## 快速使用
 
-开启 vscode 的 eslint、prettier 插件，在使用 vscode 编码时，就会自动修正风格错误、提示语法错误。
+```typescript
+import React from 'react';
+import useRestTable from '@sinoui/use-rest-table';
+import DataTable, { TableColumn } from '@sinoui/data-table';
 
-### `yarn format`
+function ListDemo() {
+  const dataSource = useRestTable('/users', [], { keyName: 'userId' });
 
-`yarn format`可以自动调整整个项目的代码风格问题。
+  return (
+    <DataTable {...dataSource}>
+      <TableColumn name="userName" width={100} title="姓名" />
+      <TableColumn name="age" width={100} title="年龄" />
+    </DataTable>
+  );
+}
+```
 
-### `yarn test`
+## dataSource的属性和方法
 
-`yarn test`以监听模式启动 jest，运行单元测试。
+`@sinoui/use-rest-table`的`dataSource`继承了[use-rest-page-api的所有属性和方法](<https://sinoui.github.io/use-rest-page-api/#datasource-%E7%9A%84%E5%B1%9E%E6%80%A7%E5%92%8C%E6%96%B9%E6%B3%95>)，除此之外还有以下方法：
 
-开启 vscode 的 jest 插件，会在文件变化时自动运行单元测试。
+* `data` 表示列表数据
+* `loading` 表示数据加载中的状态
+* `error`  表示加载错误的状态
+* `onSelect()`  列表选中时的回调函数
+* `selectedRows`  表示列表的选中项
+* `setSelectedItems()`  设置列表选中项的回调函数
+* `refresh()`  重新加载数据时的回调函数
+* `getItem()`  从列表数据中获取其中一条数据信息(不与后端交互)
+* `create()` 新增一条数据时的回调函数
+* `onChange()`  翻页、排序时的回调函数
+* `sort`  排序信息，类型为`object`
+* `clean()`  清空列表数据时的回调函数
+
