@@ -1,6 +1,6 @@
 # use-rest-table
 
-@sinoui/use-rest-table 旨在简化与列表渲染的相关处理。
+@sinoui/use-rest-table 旨在简化与@sinoui/data-table的相关处理。
 
 ## 安装
 
