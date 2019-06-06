@@ -1,0 +1,84 @@
+import { useState, useCallback, useMemo } from 'react';
+import useRestPageApi, { Options } from '@sinoui/use-rest-page-api';
+
+function useRestTable<T>(
+  url: string,
+  defaultValue?: T[],
+  options?: Options<T>,
+) {
+  const dataSource = useRestPageApi(url, defaultValue, options);
+
+  const [selectedRows, setSelectedRows] = useState([]);
+
+  const onSelect = useCallback((_ids, rows) => setSelectedRows(rows), []);
+
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const setSelectedItems = (items: any, replace: boolean = false) => {
+    if (replace) {
+      setSelectedRows(items);
+    }
+  };
+
+  const pagination = useMemo(
+    () => ({
+      pageSize: dataSource.pagination.pageSize,
+      currentPage: dataSource.pagination.pageNo + 1,
+      total: dataSource.pagination.totalElements,
+    }),
+    [
+      dataSource.pagination.pageNo,
+      dataSource.pagination.pageSize,
+      dataSource.pagination.totalElements,
+    ],
+  );
+
+  const sortInfo = useMemo(() => {
+    const { sorts } = dataSource.pagination;
+    if (sorts) {
+      if (sorts.length > 0) {
+        return { name: sorts[0].property, direction: sorts[0].direction };
+      }
+      return undefined;
+    }
+    return undefined;
+  }, [dataSource.pagination]);
+
+  const onChange = useCallback(
+    (
+      pageNo: number,
+      pageSize: number,
+      sort?: { name: string; direction: 'desc' | 'asc' },
+    ) => {
+      dataSource.fetch(
+        pageNo - 1,
+        pageSize,
+        sort ? [{ property: sort.name, direction: sort.direction }] : [],
+      );
+    },
+    [dataSource],
+  );
+
+  const onClean = useCallback(() => {
+    dataSource.clean();
+    setSelectedRows([]);
+  }, [dataSource]);
+
+  return {
+    ...dataSource,
+    data: dataSource.items,
+    loading: dataSource.isLoading,
+    error: dataSource.isError,
+    pagination,
+    onSelect,
+    selectedRows,
+    setSelectedItems,
+    refresh: dataSource.reload,
+    getItem: dataSource.getItemById,
+    create: dataSource.save,
+    onChange,
+    sort: sortInfo,
+    clean: onClean,
+  };
+}
+
+export default useRestTable;
