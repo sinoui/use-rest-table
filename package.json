@@ -47,7 +47,7 @@
   "dependencies": {
     "@babel/polyfill": "^7.4.4",
     "@babel/runtime": "^7.4.5",
-    "@sinoui/use-rest-page-api": "^0.1.4",
+    "@sinoui/use-rest-page-api": "^0.1.5",
     "react": "^16.8.6"
   },
   "devDependencies": {
@@ -58,7 +58,7 @@
     "prettier": "^1.17.1",
     "react-hooks-testing-library": "^0.5.1",
     "react-test-renderer": "^16.8.6",
-    "ts-lib-tools": "^0.2.0-alpha.3",
+    "ts-lib-tools": "^0.2.2",
     "typescript": "^3.5.1"
   }
 }

@@ -1,15 +1,27 @@
 import { useState, useCallback, useMemo } from 'react';
 import useRestPageApi, { Options } from '@sinoui/use-rest-page-api';
+import { DataSource } from './types';
 
+/**
+ * 简化`use-rest-page-api`与`@sinoui/data-table`相关处理的Hook
+ *
+ * @template T
+ * @param {string} url
+ * @param {T[]} [defaultValue]
+ * @param {Options<T>} [options]
+ * @returns
+ */
 function useRestTable<T>(
   url: string,
   defaultValue?: T[],
   options?: Options<T>,
-) {
+): DataSource<T> {
   const dataSource = useRestPageApi(url, defaultValue, options);
 
   const [selectedRows, setSelectedRows] = useState([]);
-
+  /**
+   * 列表选中时的回调函数
+   */
   const onSelect = useCallback((_ids, rows) => setSelectedRows(rows), []);
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -19,6 +31,9 @@ function useRestTable<T>(
     }
   };
 
+  /**
+   * 处理pagination的转换
+   */
   const pagination = useMemo(
     () => ({
       pageSize: dataSource.pagination.pageSize,
@@ -32,6 +47,9 @@ function useRestTable<T>(
     ],
   );
 
+  /**
+   * 处理排序信息
+   */
   const sortInfo = useMemo(() => {
     const { sorts } = dataSource.pagination;
     if (sorts) {
@@ -43,6 +61,9 @@ function useRestTable<T>(
     return undefined;
   }, [dataSource.pagination]);
 
+  /**
+   * 翻页、排序时的回调函数
+   */
   const onChange = useCallback(
     (
       pageNo: number,
