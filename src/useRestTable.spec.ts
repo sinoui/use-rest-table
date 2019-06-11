@@ -22,7 +22,7 @@ it('验证列表选中项', async () => {
   });
 
   const { result, waitForNextUpdate } = renderHook(() =>
-    useRestTable('/test', [], {
+    useRestTable<any>('/test', [], {
       keyName: 'userId',
     }),
   );

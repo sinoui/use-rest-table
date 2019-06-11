@@ -1,6 +1,7 @@
 {
   "name": "use-rest-table",
   "version": "0.1.0",
+  "description": "@sinoui/use-rest-table 旨在简化与@sinoui/data-table 的相关处理",
   "license": "MIT",
   "main": "dist/index.js",
   "umd:main": "dist/use-rest-table.umd.production.js",
@@ -47,8 +48,7 @@
   "dependencies": {
     "@babel/polyfill": "^7.4.4",
     "@babel/runtime": "^7.4.5",
-    "@sinoui/use-rest-page-api": "^0.1.5",
-    "react": "^16.8.6"
+    "@sinoui/use-rest-page-api": "^0.1.5"
   },
   "devDependencies": {
     "@sinoui/http": "^0.2.2",
@@ -59,6 +59,13 @@
     "react-hooks-testing-library": "^0.5.1",
     "react-test-renderer": "^16.8.6",
     "ts-lib-tools": "^0.2.2",
-    "typescript": "^3.5.1"
+    "typescript": "^3.5.1",
+    "react": "^16.8.6"
+  },
+  "peerDependencies": {
+    "react": "^16.8.0"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
