@@ -1,5 +1,5 @@
 {
-  "name": "use-rest-table",
+  "name": "@sinoui/use-rest-table",
   "version": "0.1.1",
   "description": "@sinoui/use-rest-table 旨在简化与@sinoui/data-table 的相关处理",
   "license": "MIT",
@@ -48,7 +48,7 @@
   "dependencies": {
     "@babel/polyfill": "^7.4.4",
     "@babel/runtime": "^7.4.5",
-    "@sinoui/use-rest-page-api": "^0.1.5"
+    "@sinoui/use-rest-page-api": "^0.1.7"
   },
   "devDependencies": {
     "@sinoui/http": "^0.2.2",

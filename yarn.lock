@@ -958,10 +958,10 @@
     "@babel/runtime" "^7.4.4"
     axios "0.19.0"
 
-"@sinoui/use-rest-page-api@^0.1.5":
-  version "0.1.5"
-  resolved "https://registry.yarnpkg.com/@sinoui/use-rest-page-api/-/use-rest-page-api-0.1.5.tgz#3cf59b5cb69a265329f06ff91df1001479c2ad3f"
-  integrity sha512-1KAz3MPfSE6rhu1AaDS+U0obdMz92e1eFHfvze+tFByamcphwBQ1EKdeYkrW1sgchNVgO0kDL44P/WYYeRgKng==
+"@sinoui/use-rest-page-api@^0.1.7":
+  version "0.1.7"
+  resolved "https://registry.yarnpkg.com/@sinoui/use-rest-page-api/-/use-rest-page-api-0.1.7.tgz#7147b7dde6386ede3fe4230b99e737a9baee29f7"
+  integrity sha512-M95PE0OZcXnsmepN4U54L262nTCR4WCzYrrsQnqP6DNFLuTBJejymhNfkTNikmfTR0CgtMPAb0ibVJh/uHcOYw==
   dependencies:
     "@babel/polyfill" "^7.4.4"
     "@babel/runtime" "^7.4.4"
