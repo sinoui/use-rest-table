@@ -16,7 +16,7 @@ export interface DataSource<T>
   selectedRows: T[];
   setSelectedItems: (items: T[], replace?: boolean) => void;
   refresh: () => void;
-  getItem: (id: string) => T;
+  getItem: (id: string) => T | undefined;
   create: (item: T) => Promise<T>;
   onChange: (
     pageNo: number,
