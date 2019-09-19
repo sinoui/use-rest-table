@@ -1,10 +1,10 @@
 {
   "name": "@sinoui/use-rest-table",
-  "version": "0.1.4",
+  "version": "1.0.0",
   "description": "@sinoui/use-rest-table 旨在简化与@sinoui/data-table 的相关处理",
   "license": "MIT",
   "main": "dist/index.js",
-  "module": "dist/use-rest-table.es.production.js",
+  "module": "dist/sinoui-use-rest-table.esm.js",
   "typings": "dist/index.d.ts",
   "homepage": "https://sinoui.github.io/use-rest-table/",
   "bugs": {
@@ -59,15 +59,15 @@
   },
   "devDependencies": {
     "@sinoui/http": "^1.0.0",
+    "@testing-library/react-hooks": "^2.0.1",
     "@types/react": "^16.9.2",
     "husky": "^3.0.5",
     "lint-staged": "^9.2.5",
     "prettier": "^1.18.2",
-    "@testing-library/react-hooks": "^2.0.1",
+    "react": "^16.9.0",
     "react-test-renderer": "^16.9.0",
     "ts-lib-tools": "^0.4.7",
-    "typescript": "^3.6.3",
-    "react": "^16.9.0"
+    "typescript": "^3.6.3"
   },
   "peerDependencies": {
     "react": "^16.8.0"
