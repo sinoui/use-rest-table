@@ -1,4 +1,4 @@
-import { renderHook } from 'react-hooks-testing-library';
+import { renderHook } from '@testing-library/react-hooks';
 import http from '@sinoui/http';
 import useRestTable from './useRestTable';
 

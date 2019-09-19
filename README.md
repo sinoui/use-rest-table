@@ -1,4 +1,7 @@
-# use-rest-table
+# @sinoui/use-rest-table
+
+[![npm version](https://img.shields.io/npm/v/@sinoui/use-rest-table)](https://www.npmjs.com/package/@sinoui/use-rest-table)
+[![downloads](https://img.shields.io/npm/dm/@sinoui/use-rest-table)](https://www.npmjs.com/package/@sinoui/use-rest-table)
 
 @sinoui/use-rest-table 旨在简化与@sinoui/data-table 的相关处理。
 
